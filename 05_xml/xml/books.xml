@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- 以上内容是xml文件的声明
+    xml声明 version是版本的意思   encoding是编码  -->
+<books><!-- books 表示多个图书信息-->
+    <book sn="SN125656897877"> <!-- book表示一本图书信息  sn属性表示图书序列号  -->
+        <name>时间简史</name> <!-- name标签表示书名 -->
+        <author>霍金</author> <!-- author表示作者 -->
+        <price>35</price> <!-- price 表示价格 -->
+    </book>
+
+    <book sn="SN125656897876"> <!-- book表示一本图书信息  sn属性表示图书序列号  -->
+        <name>java从入门到放弃</name> <!-- name标签表示书名 -->
+        <author>
+            <![CDATA[
+             <<<<<<李老师
+            ]]]>
+        </author> <!-- author表示作者 -->
+        <price>9.9</price> <!-- price 表示价格 -->
+    </book>
+</books>

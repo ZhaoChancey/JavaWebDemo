@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function fun(a) {//传不传参数不影响
+            alert(arguments.length);
+            alert("无参函数fun()");
+
+            alert( arguments[0] );
+            alert( arguments[1] );
+            alert( arguments[2] );
+
+            alert("a = " + a);
+            for (var i = 0;i < arguments.length;i++){
+                alert(arguments[i]);
+            }
+
+        }
+
+        // fun(1,"a",true);
+        // 需求：要求 编写 一个函数。用于计算所有参数相加的和并返回
+        function sum() {
+            var result = 0;
+            for (var i = 0;i < arguments.length;i++){
+                if (typeof (arguments[i]) == "number"){
+                    result += arguments[i];
+                }
+            }
+            return result;
+        }
+
+        alert(sum(1,2,3,4,5,"abc",6,7,8,9));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript"></script>
+<script type="text/javascript" src="../../script/jquery-1.7.2.js"></script>
+<script type="text/javascript">
+	window.onload = function(){
+		alert("原生js的页面加载完成之后--1");
+	};
+
+	window.onload = function(){
+		alert("原生js的页面加载完成之后--2");
+	};
+
+	window.onload = function(){
+		alert("原生js的页面加载完成之后--3");
+	};//最后一次会把前面两次覆盖掉
+
+	// $(document).ready(function () {
+	//
+	// }) document加载后立即执行
+	// jquery的页面加载完成 之后
+	$(function () {
+		alert("jquery的页面加载完成 之后--1");
+	});
+
+	$(function () {
+		alert("jquery的页面加载完成 之后--2");
+	});
+
+	$(function () {
+		alert("jquery的页面加载完成 之后--3");
+	});
+
+</script>
+</head>
+<body>
+	<button>我是按钮</button>
+	
+	 <iframe src="http://localhost:8080"></iframe>
+	 <img src="img/221.jpg" alt="sa"/>
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>www.jb51.net jQuery仿京东菜单</title>
+    <meta charset="utf-8">
+    <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        li{
+            list-style: none;
+        }
+        a{
+            color:#555;
+        }
+        .menu{
+            width: 220px;
+            border: 2px solid #333;
+            position: relative;
+        }
+        .menu_item{
+            height: 47px;
+            padding-left:20px;
+            line-height: 47px;
+            background-color:#feebf3;
+            border-bottom: 1px solid #f0bfd3;
+        }
+        .menu_item.current{
+            background-color: #fff;
+        }
+        .menu_cont{
+            position: absolute;
+            width: 500px;
+            height: 150px;
+            top: 0;
+            left: 220px;
+            padding: 15px;
+            border: 1px solid #666;
+        }
+    </style>
+</head>
+<body>
+<h2>防抖动</h2>
+<div class="menu">
+    <ul class="menu_list">
+        <li class="menu_item"><a href="">热点要闻</a></li>
+        <li class="menu_item"><a href="">个性推荐</a></li>
+        <li class="menu_item"><a href="">北京新闻</a></li>
+        <li class="menu_item"><a href="">环球视野</a></li>
+    </ul>
+    <div class="menu_cont" style="display:none">
+        <div class="menu_cont_list">
+            <ul>
+                <li>
+                    <h3><a href="">618，刘强东笑了，很多人哭了</a></h3>
+                </li>
+                <li>
+                    <h3><a href="">普通人如何分享人民币增值红利</a></h3>
+                </li>
+                <li>
+                    <h3><a href="">大都市里藏板房小学闷热无比 </a></h3>
+                </li>
+            </ul>
+        </div>
+        <div class="menu_cont_list">
+            <ul>
+                <li>
+                    <h3><a href="">中国炼油产能过剩超亿吨 油价迫近4元降回到十年前</a></h3>
+                </li>
+                <li>
+                    <h3><a href="">银行大幅上调首套房贷利率 这些人最受影响</a></h3>
+                </li>
+                <li>
+                    <h3><a href="">江南大范围强降雨再次来袭 今明北方旱区多雷阵雨</a></h3>
+                </li>
+            </ul>
+        </div>
+        <div class="menu_cont_list">
+            <ul>
+                <li>
+                    <h3><a href="">京郊特产组团进超市 类似活动将在全市推开</a></h3>
+                </li>
+                <li>
+                    <h3><a href="">北京某高档小区地下二层防空洞改群租房</a></h3>
+                </li>
+                <li>
+                    <h3><a href="">北京市民踊跃收听收看市党代会开幕直播</a></h3>
+                </li>
+            </ul>
+        </div>
+        <div class="menu_cont_list">
+            <ul>
+                <li>
+                    <h3><a href="">英国推出“钱味香水”：随时感受钞票味儿</a></h3>
+                </li>
+                <li>
+                    <h3><a href="">美国是如何买下阿拉斯加的？为何俄国悔不当初？</a></h3>
+                </li>
+                <li>
+                    <h3><a href="">将增近4000人，美国为何欲大幅增兵阿富汗？</a></h3>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(document).ready(function(){
+        var $menu = $(".menu");
+        var $menuItem = $(".menu_item");
+        var $menuCont = $(".menu_cont");
+        var $menuContList= $(".menu_cont_list")
+        var menuTimer;
+        $menuItem.on("mouseenter", function(){
+            var self = $(this);
+            menuTimer = setTimeout(function(){
+                self.addClass("current");
+                self.siblings().removeClass("current");
+                $menuCont.show();
+                var _index = self.index();
+                $menuContList.eq(_index).show();
+                $menuContList.eq(_index).siblings().hide();
+            },500)
+        }).on("mouseleave", function(){
+            if(menuTimer){
+                clearTimeout(menuTimer);
+            }
+        })
+        $menu.on("mouseleave", function(){
+            $menuCont.hide();
+        })
+    })
+</script>
+</body>
+</html>
